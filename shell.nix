@@ -26,5 +26,6 @@ pkgs.mkShell {
     echo "Python virtual environment is ready!"
     echo "Virtual environment 'venv' is active"
     echo "Run 'python app.py' to start the development server"
+    python app.py
   '';
 } 
