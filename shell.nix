@@ -13,19 +13,25 @@ pkgs.mkShell {
       echo "Creating virtual environment..."
       python -m venv venv
     fi
-    
+
     # Activate virtual environment
     source venv/bin/activate
-    
+
     # Install Flask if not already installed
     if ! pip list | grep -F flask > /dev/null; then
       echo "Installing Flask..."
       pip install flask
     fi
+
+    # Confirm that the virtual environment is active
+    echo "Python virtual environment 'venv' is active!"
     
-    echo "Python virtual environment is ready!"
-    echo "Virtual environment 'venv' is active"
-    echo "Run 'python app.py' to start the development server"
-    python app.py
+    # Automatically run app.py after setting up the environment
+    if [ -f "app.py" ]; then
+      echo "Starting app.py..."
+      python app.py
+    else
+      echo "app.py not found in the current directory."
+    fi
   '';
-} 
+}
