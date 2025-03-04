@@ -25,9 +25,16 @@ A Flask web application using Nix for development environment management.
    python app.py
    ```
 
+The application will automatically:
+- Find and use an available port
+- Display the port number in both console and web page
+- Hot reload when code changes are detected
+- Auto-refresh the browser on code changes
+
 ## Development
 
 The project uses a Python virtual environment that is automatically created and activated when entering the nix-shell.
+The application supports hot reloading - any changes to the code will automatically restart the server and refresh the browser.
 
 ## Requirements
 
@@ -37,7 +44,7 @@ The project uses a Python virtual environment that is automatically created and 
 ## Application Structure
 
 - `shell.nix` - Development environment configuration
-- `app.py` - Flask application
+- `app.py` - Flask application (with dynamic port and hot reload)
 - `.gitignore` - Git ignore rules
 
 ## Python Web Hello World
